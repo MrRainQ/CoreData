@@ -110,18 +110,15 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSString *identifier = segue.identifier;
-    
-    if ([identifier isEqualToString:@"aaaa"]) {
+    if ([sender isKindOfClass:[NSIndexPath class]]) {
         
         NSIndexPath *indexPath = sender;
         
         Person *person = [_fetchedResultsController objectAtIndexPath:indexPath];
-    
+        
         EditPersonController *edit = segue.destinationViewController;
         
         edit.editPerson = person;
-
     }
 }
 
